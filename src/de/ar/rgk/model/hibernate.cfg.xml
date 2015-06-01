@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+	<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+
+		<!-- Database connection settings -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost/rgk</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">root</property>
+
+		<!-- JDBC connection pool (use the built-in) -->
+		<property name="connection.pool_size">2</property>
+
+		<!-- SQL dialect -->
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+		<!-- Disable the second-level cache -->
+		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+		<!-- Echo all executed SQL to stdout -->
+		<property name="show_sql">false</property>
+
+		<!-- Enable Hibernate's current session context -->
+		<property name="current_session_context_class">thread</property>
+
+		<property name="hbm2ddl.auto">update</property>
+
+		<property name="hibernate.max_fetch_depth">5</property>
+
+		<mapping class="de.ar.rgk.model.implementations.CookBook" />
+		<mapping class="de.ar.rgk.model.implementations.Ingredient" />
+		<mapping class="de.ar.rgk.model.implementations.Instruction" />
+		<mapping class="de.ar.rgk.model.implementations.Recipe" />
+
+	</session-factory>
+
+</hibernate-configuration>
